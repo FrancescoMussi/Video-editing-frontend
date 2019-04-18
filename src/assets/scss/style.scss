@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700');
+@import './variables.scss';
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+
+  .card {
+    margin-top: 5rem;
+
+    .header {
+      padding: 5px 10px;
+    }
+  }
+}
+
+.video-js {
+  height: 353px;
+  width: 100% !important;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.app-green {
+  color: $app-green !important;
+}
+
+.is-invalid {
+  border-bottom: 1px solid $error-color !important;
+  color: $error-color;
+}
+
+.invalid-feedback {
+  display: block !important;
+  color: $error-color;
+}
+
+// Login / Register pages style
+.loginContainer {
+  .hero.is-success {
+    background: #f2f6fa;
+  }
+  .box {
+    margin-top: 5rem;
+  }
+  .avatar {
+    margin-top: -70px;
+    padding-bottom: 20px;
+    img {
+      padding: 5px;
+      background: #fff;
+      border-radius: 50%;
+      width: 50%;
+      -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1),
+        0 0 0 1px rgba(10, 10, 10, 0.1);
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1),
+        0 0 0 1px rgba(10, 10, 10, 0.1);
+    }
+  }
+  input {
+    font-weight: 300;
+  }
+  p {
+    font-weight: 700;
+  }
+  p.subtitle {
+    padding-top: 1rem;
+  }
+}
