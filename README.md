@@ -8,7 +8,7 @@ It's an app meant to be used during wedding celebrations by the guests. Each gue
 
 ## Frameworks: 
 
-Vuejs + Bulma + Laravel for backend
+Vuejs + Bulma
 
 ## Features: 
 
@@ -21,3 +21,7 @@ Vuejs + Bulma + Laravel for backend
 - Axios requests with async/await 
 - Visual circular countdown 
 - Opacity full screen overlay with custom spinner 
+
+## Backend:
+
+[Backend Repository](https://github.com/FrancescoMussi/Video-editing-backend)
