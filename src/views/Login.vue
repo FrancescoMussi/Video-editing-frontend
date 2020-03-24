@@ -8,7 +8,7 @@
             <p class="subtitle has-text-grey">Please login to proceed.</p>
             <div class="box">
               <figure class="avatar">
-                <img src="../assets/img/logo.png">
+                <img src="../assets/img/logo.png" />
               </figure>
               <form @submit.prevent="loginSubmit">
                 <div class="field">
@@ -20,15 +20,19 @@
                       autofocus
                       v-model="email"
                       @blur="$v.email.$touch()"
-                    >
+                    />
                     <div
                       class="invalid-feedback"
                       v-if="!$v.email.required && $v.email.$dirty"
-                    >The email is required</div>
+                    >
+                      The email is required
+                    </div>
                     <div
                       class="invalid-feedback"
                       v-if="!$v.email.email && $v.email.$dirty"
-                    >Please enter a valid email</div>
+                    >
+                      Please enter a valid email
+                    </div>
                   </div>
                 </div>
 
@@ -40,11 +44,13 @@
                       placeholder="Your Password"
                       v-model="password"
                       @blur="$v.password.$touch()"
-                    >
+                    />
                     <div
                       class="invalid-feedback"
                       v-if="!$v.password.required && $v.password.$dirty"
-                    >The password is required</div>
+                    >
+                      The password is required
+                    </div>
                   </div>
                 </div>
                 <div class="invalid-feedback" v-if="invalidCredentials">
@@ -56,7 +62,13 @@
                   class="button is-block is-primary is-large is-fullwidth"
                   :disabled="buttonIsDisabled"
                 >
-                  <v-icon name="spinner" class="iconSpinner mr5" pulse v-if="buttonIsDisabled"></v-icon>Login
+                  <v-icon
+                    name="spinner"
+                    class="iconSpinner mr5"
+                    pulse
+                    v-if="buttonIsDisabled"
+                  ></v-icon>
+                  Login
                 </button>
               </form>
             </div>

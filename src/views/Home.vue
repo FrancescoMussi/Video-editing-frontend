@@ -93,7 +93,7 @@
                       @click="openModal"
                       v-if="showFinalizeButton"
                     >
-                      <i class="material-icons" style="margin-right: 2px;"
+                      <i class="material-icons" style="margin-right: 0.125rem;"
                         >check_circle</i
                       >
                       Finalize
@@ -313,8 +313,6 @@ export default {
           this.addVideo(videoObject)
           this.videoIdIncrease()
           this.showRecorder()
-          console.log('videos')
-          console.log(this.videos)
         }, 4000)
       }
     },
@@ -353,7 +351,7 @@ export default {
       axios.defaults.headers.common['Authorization'] =
         'Bearer ' + this.$store.state.token
       const response = await axios.post(
-        this.$store.state.baseUrl + '/admin_access',
+        this.$store.state.baseUrl + '/api/admin_access',
         postData
       )
       console.log({ response })
@@ -399,7 +397,7 @@ export default {
   .radialContainer {
     margin: auto;
     width: 15%;
-    margin-top: -80px;
+    margin-top: -5rem;
   }
   .card-custom {
     background-color: rgba(255, 255, 255, 0.5) !important;

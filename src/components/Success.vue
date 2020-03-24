@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/variables.scss';
 .success-container {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   text-align: left;
 
   .success-title {
@@ -56,87 +56,87 @@ export default {
 
 // ANIMATION
 .sa {
-  width: 140px;
-  height: 140px;
-  padding: 26px;
+  width: 8.75rem;
+  height: 8.75rem;
+  padding: 1.625rem;
   background-color: transparent;
   // margin: 0 auto;
   &-success {
     border-radius: 50%;
-    border: 4px solid $app-red;
+    border: 0.25rem solid $app-red;
     box-sizing: content-box;
-    height: 80px;
+    height: 5rem;
     padding: 0;
     position: relative;
     background-color: transparent;
-    width: 80px;
+    width: 5rem;
     &:after,
     &:before {
       background: transparent;
       content: '';
-      height: 120px;
+      height: 7.5rem;
       position: absolute;
       transform: rotate(45deg);
-      width: 60px;
+      width: 3.75rem;
     }
     &:before {
-      border-radius: 40px 0 0 40px;
-      width: 26px;
-      height: 80px;
-      top: -17px;
-      left: 5px;
-      transform-origin: 60px 60px;
+      border-radius: 2.5rem 0 0 2.5rem;
+      width: 1.625rem;
+      height: 5rem;
+      top: -1.0625rem;
+      left: 0.3125rem;
+      transform-origin: 3.75rem 3.75rem;
       transform: rotate(-45deg);
     }
     &:after {
-      border-radius: 0 120px 120px 0;
-      left: 30px;
-      top: -11px;
-      transform-origin: 0 60px;
+      border-radius: 0 7.5rem 7.5rem 0;
+      left: 1.875rem;
+      top: -0.6875rem;
+      transform-origin: 0 3.75rem;
       transform: rotate(-45deg);
       animation: rotatePlaceholder 4.25s ease-in;
     }
     &-placeholder {
       border-radius: 50%;
-      border: 4px solid rgba(255, 56, 96, 0.25);
+      border: 0.25rem solid rgba(255, 56, 96, 0.25);
       box-sizing: content-box;
-      height: 80px;
-      left: -4px;
+      height: 5rem;
+      left: -0.25rem;
       position: absolute;
-      top: -4px;
-      width: 80px;
+      top: -0.25rem;
+      width: 5rem;
       z-index: 2;
     }
     &-fix {
       background-color: transparent;
-      height: 90px;
-      left: 28px;
+      height: 5.625rem;
+      left: 1.75rem;
       position: absolute;
-      top: 8px;
+      top: 0.5rem;
       transform: rotate(-45deg);
-      width: 5px;
+      width: 0.3125rem;
       z-index: 1;
     }
     &-tip,
     &-long {
       background-color: $app-red;
-      border-radius: 2px;
-      height: 5px;
+      border-radius: 0.125rem;
+      height: 0.3125rem;
       position: absolute;
       z-index: 2;
     }
     &-tip {
-      left: 14px;
-      top: 46px;
+      left: 0.875rem;
+      top: 2.875rem;
       transform: rotate(45deg);
-      width: 25px;
+      width: 1.563rem;
       animation: animateSuccessTip 0.75s;
     }
     &-long {
-      right: 8px;
-      top: 38px;
+      right: 0.5rem;
+      top: 2.375rem;
       transform: rotate(-45deg);
-      width: 47px;
+      width: 2.9rem;
       animation: animateSuccessLong 0.75s;
     }
   }
@@ -145,41 +145,41 @@ export default {
   0%,
   54% {
     width: 0;
-    left: 1px;
-    top: 19px;
+    left: 0.0625rem;
+    top: 1.1875rem;
   }
   70% {
-    width: 50px;
-    left: -8px;
-    top: 37px;
+    width: 3.125rem;
+    left: -0.5rem;
+    top: 2.3125rem;
   }
   84% {
-    width: 17px;
-    left: 21px;
-    top: 48px;
+    width: 1.0625rem;
+    left: 1.3125rem;
+    top: 3rem;
   }
   100% {
-    width: 25px;
-    left: 14px;
-    top: 45px;
+    width: 1.563rem;
+    left: 0.875rem;
+    top: 2.8125rem;
   }
 }
 @keyframes animateSuccessLong {
   0%,
   65% {
     width: 0;
-    right: 46px;
-    top: 54px;
+    right: 2.875rem;
+    top: 3.375rem;
   }
   84% {
-    width: 55px;
+    width: 3.4375rem;
     right: 0;
-    top: 35px;
+    top: 2.1875rem;
   }
   100% {
-    width: 47px;
-    right: 8px;
-    top: 38px;
+    width: 2.9rem;
+    right: 0.5rem;
+    top: 2.375rem;
   }
 }
 @keyframes rotatePlaceholder {

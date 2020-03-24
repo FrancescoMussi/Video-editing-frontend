@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
 
 export default new Vuex.Store({
   state: {
-    token: localStorage.getItem('access_token') || null,
+    token: window.localStorage.getItem('access_token') || null,
     userId: null,
     showVideoRecorder: true,
     showStartRecordingButton: true,
@@ -37,18 +37,18 @@ export default new Vuex.Store({
     blobArray: [],
     currentBlob: null,
     videoId: 1,
-    baseUrl: 'http://127.0.0.1:8000/api',
+    baseUrl: 'http://127.0.0.1:8000'
   },
   getters: {
-    loggedIn(state) {
+    loggedIn: state => {
       return state.token !== null
     }
   },
   mutations: {
-    logout(state) {
+    logout: state => {
       state.token = null
     },
-    setToken(state, token) {
+    setToken: (state, token) => {
       state.token = token
     },
     setShowVideoRecorder: (state, showVideoRecorder) => {
@@ -88,7 +88,7 @@ export default new Vuex.Store({
     setCounter: (state, counter) => {
       state.counter = counter
     },
-    counterDecrement(state) {
+    counterDecrement: state => {
       state.counter--
     },
     setCompletedSteps: (state, completedSteps) => {
@@ -101,7 +101,7 @@ export default new Vuex.Store({
       state.videos.push(video)
     },
     removeVideo: state => {
-      state.videos.pop
+      state.videos.pop()
     },
     setPlayerOptions: (state, options) => {
       state.playerOptions.sources = []
@@ -130,10 +130,10 @@ export default new Vuex.Store({
     },
     setUserId: (state, id) => {
       state.userId = id
-    },
+    }
   },
   actions: {
-    register(context, data) {
+    register: (context, data) => {
       return axios
         .post('/register', {
           first_name: data.firstName,
@@ -149,7 +149,7 @@ export default new Vuex.Store({
           throw error
         })
     },
-    login(context, credentials) {
+    login: (context, credentials) => {
       return axios
         .post('/login', {
           username: credentials.email,
@@ -157,7 +157,7 @@ export default new Vuex.Store({
         })
         .then(response => {
           const token = response.data.access_token
-          localStorage.setItem('access_token', token)
+          window.localStorage.setItem('access_token', token)
           context.commit('setToken', token)
           return response
         })
@@ -165,7 +165,7 @@ export default new Vuex.Store({
           throw error
         })
     },
-    getUser(context) {
+    getUser: context => {
       axios.defaults.headers.common['Authorization'] =
         'Bearer ' + context.state.token
       return axios
@@ -178,16 +178,16 @@ export default new Vuex.Store({
           throw error
         })
     },
-    destroyTokens(context, token) {
+    destroyTokens: (context, token) => {
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
       return axios
         .post('/logout')
         .then(response => {
-          localStorage.removeItem('access_token')
+          window.localStorage.removeItem('access_token')
           return response
         })
         .catch(error => {
-          localStorage.removeItem('access_token')
+          window.localStorage.removeItem('access_token')
           context.commit('logout')
           throw error
         })

@@ -11,7 +11,6 @@
                 <img src="../assets/img/logo.png" />
               </figure>
               <form @submit.prevent="registerSubmit">
-
                 <div class="field">
                   <div class="control">
                     <input

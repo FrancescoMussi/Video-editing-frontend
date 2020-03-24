@@ -13,7 +13,6 @@
             icon="ondemand_video"
             @click.native="sendVideos"
           ></custom-button>
-
           <a
             class="button is-primary is-fullwidth downloadButton"
             v-if="showDownloadButton"
@@ -40,16 +39,11 @@
               <br />Press the button on the left to create the final video
             </h3>
           </div>
-          <draggable
-            ref="draggable"
-            v-model="videos"
-            @start="drag = true"
-            @end="drag = false"
-          >
+          <draggable ref="draggable" v-model="videosScoped" @end="videoDragged">
             <transition-group name="list-complete">
               <div
                 class="card list-complete-item"
-                v-for="video in videos"
+                v-for="video in videosScoped"
                 :key="video.id"
               >
                 <div class="card-content">
@@ -110,24 +104,23 @@ export default {
       successTitle: 'The video has been successfully created!',
       successSubtitle:
         'Click the download button on the left to download the video',
-      axiosValueTest: ''
+      axiosValueTest: '',
+      videosScoped: []
     }
   },
   computed: {
-    // Get videos for drag & drop and update them
-    videos: {
-      get() {
-        return this.$store.state.videos
-      },
-      set(value) {
-        this.$store.commit('updateVideos', value)
-      }
+    videos() {
+      return this.$store.state.videos
     }
   },
+  created() {
+    this.videosScoped = this.videos.map(item => ({ ...item }))
+  },
   methods: {
+    videoDragged() {
+      this.$store.commit('updateVideos', this.videosScoped)
+    },
     sendVideos() {
-      console.log('sending videos')
-      console.log(this.videos)
       this.$refs.overlay.showOverlay()
       this.sendVideosRequest()
     },
@@ -165,15 +158,14 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/variables.scss';
 .adminArea {
-  margin-top: 57px;
+  margin-top: 3.5625rem;
 
   .card-content {
     padding-left: 1rem;
     padding-top: 0.9rem;
   }
   .textContainer {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 1.875rem 0;
   }
   .titleSuccess {
     color: $app-red;
@@ -182,7 +174,7 @@ export default {
     color: $app-red;
   }
   .downloadButton {
-    margin-top: 5px;
+    margin-top: 0.3125rem;
   }
 
   .aside {
@@ -191,22 +183,22 @@ export default {
     border-right: 1px solid #dedede;
 
     .compose {
-      height: 95px;
-      margin: 0 -10px;
-      padding: 25px 30px;
+      height: 5.9rem;
+      margin: 0 -0.625rem;
+      padding: 1.56rem 1.875rem;
     }
     .compose .button {
       color: #f6f7f7;
     }
     .compose .button .compose {
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: 700;
     }
   }
 
   // Drag items Animation
   .list-complete-item {
-    margin-top: 8px;
+    margin-top: 0.5rem;
     border: 1px solid lightgrey;
     transition: all 0.5s;
   }

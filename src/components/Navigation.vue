@@ -65,7 +65,8 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/variables.scss';
 .navbar {
-  .navbar-link, .navbar-link:hover {
+  .navbar-link,
+  .navbar-link:hover {
     background-color: transparent;
   }
   .navbar-item:hover {

@@ -92,7 +92,6 @@ export default {
       this.$store.commit('setShowFinalizeButton', false)
       this.$store.commit('setShowSuccessVideoRecorded', true)
       this.recorder.ondataavailable = e => {
-        console.log({ e })
         this.$store.commit('addChunk', e.data)
         this.$store.commit('setCurrentBlob', e.data)
 
