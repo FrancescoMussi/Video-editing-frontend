@@ -2,7 +2,7 @@
 Video Editing Project Frontend with Vuejs + Bulma
 
 ## Demo
-[Live demo](https://videoediting.netlify.com/#/)
+[Live demo](http://restcli.denet.men/#/)
 
 ###### Credentials for the demo
 
