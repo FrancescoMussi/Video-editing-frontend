@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.use(Vuex)
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
+axios.defaults.baseURL = 'http://restcli.denet.men/video_api/public/api'
 
 export default new Vuex.Store({
   state: {
@@ -37,7 +37,7 @@ export default new Vuex.Store({
     blobArray: [],
     currentBlob: null,
     videoId: 1,
-    baseUrl: 'http://127.0.0.1:8000'
+    baseUrl: 'http://restcli.denet.men/video_api/public'
   },
   getters: {
     loggedIn: state => {

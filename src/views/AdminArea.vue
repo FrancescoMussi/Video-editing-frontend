@@ -17,7 +17,7 @@
             class="button is-primary is-fullwidth downloadButton"
             v-if="showDownloadButton"
             target="_blank"
-            href="http://localhost:8000/videos/output.mp4"
+            :href="$store.state.baseUrl + '/videos/output.mp4'"
           >
             <i class="material-icons" style="margin-right: 3px"
               >open_in_browser</i
@@ -138,7 +138,7 @@ export default {
       axios.defaults.headers.common['Authorization'] =
         'Bearer ' + this.$store.state.token
       const response = await axios.post(
-        'http://localhost:8000/api/concat_videos',
+        `${this.$store.state.baseUrl}/api/concat_videos`,
         postData,
         axiosConfig
       )
