@@ -4,7 +4,7 @@ Video Editing Project Frontend with Vuejs + Bulma
 ## Demo
 [Live demo](https://videoediting.netlify.com/#/)
 
-### Credentials for the demo
+###### Credentials for the demo
 
 **email**: john@email.com <br>
 **password**: 111111 <br>
